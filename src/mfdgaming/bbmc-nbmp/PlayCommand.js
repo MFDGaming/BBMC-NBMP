@@ -22,29 +22,29 @@ const Player = require(`${bbmcPath}/player/Player`);
 class PlayCommand extends Command {
     main;
 
-	constructor(main) {
-		let cmdParam = new CommandParam();
-		cmdParam.name = "file";
-		cmdParam.optional = true;
-		cmdParam.typeID = CommandArgumentFlags.valid | CommandArgumentTypes.rawText;
-		cmdParam.options = 0;
-		cmdParam.suffixes = [];
-		super("play", "play command", [], [cmdParam]);
+    constructor(main) {
+        let cmdParam = new CommandParam();
+        cmdParam.name = "file";
+        cmdParam.optional = true;
+        cmdParam.typeID = CommandArgumentFlags.valid | CommandArgumentTypes.rawText;
+        cmdParam.options = 0;
+        cmdParam.suffixes = [];
+        super("play", "play command", [], [cmdParam]);
         this.main = main;
-	}
+    }
 
-	async run(sender, writtenCommand, args) {
+    async run(sender, writtenCommand, args) {
         if (sender instanceof Player) {
             if (args.length > 0) {
                 sender.message("Playing file");
-                this.main.playFile(args.join(" "), sender);
+                new Promise(async () => this.main.playFile(args.join(" "), sender));
             } else {
                 sender.message("/play {file}");
             }
         } else {
             sender.message("You can't run this command as a server");
         }
-	}
+    }
 }
 
 module.exports = PlayCommand;
