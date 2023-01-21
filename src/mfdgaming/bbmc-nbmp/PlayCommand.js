@@ -22,7 +22,13 @@ class PlayCommand extends Command {
         if (sender instanceof Player) {
             if (args.length > 0) {
                 sender.message("Playing file");
-                new Promise(async () => this.main.playFile(args.join(" "), sender));
+                new Promise(async () => {
+                    try {
+                        await this.main.playFile(args.join(" "), sender)
+                    } catch {
+                        sender.message("File not found");
+                    }
+                });
             } else {
                 sender.message("/play {file}");
             }
