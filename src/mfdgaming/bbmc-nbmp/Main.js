@@ -25,12 +25,12 @@ const instruments = {
 
 class Main extends PluginStructure {
     successfullyEnabled() {
-        console.log("bbmc-nbmp enabled");
+        this.log.info("bbmc-nbmp enabled");
         this.server.commandsList.add(new PlayCommand(this));
     }
 
     successfullyDisabled() {
-        console.log("bbmc-nbmp disabled");
+        this.log.info("bbmc-nbmp disabled");
     }
 
     handleEvents() {
