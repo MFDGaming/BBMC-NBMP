@@ -3,5 +3,6 @@
     "description": "Plays noteblock music in your bbmc server",
     "version": "1.0.0",
     "author": "MFDGaming",
-    "main": "src/mfdgaming/bbmc-nbmp/Main"
+    "main": "src/mfdgaming/bbmc-nbmp/Main",
+    "api": "0.0.1"
 }
