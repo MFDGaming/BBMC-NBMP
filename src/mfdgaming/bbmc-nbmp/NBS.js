@@ -51,7 +51,7 @@ class NBS {
         this.autoSaving = this.stream.readBool();
         this.autoSavingDuration = this.stream.readByte();
         this.timeSigniture = this.stream.readByte();
-        this.minutes_spent = this.stream.readIntLE();
+        this.minutesSpent = this.stream.readIntLE();
         this.leftClicks = this.stream.readIntLE();
         this.rightClicks = this.stream.readIntLE();
         this.blocksAdded = this.stream.readIntLE();
